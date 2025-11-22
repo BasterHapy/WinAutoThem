@@ -1,5 +1,17 @@
+astral==3.2
+certifi==2025.11.12
+charset-normalizer==3.4.4
+click==8.3.1
+decorator==5.2.1
+future==1.0.0
+geocoder==1.38.1
+idna==3.11
 pip==25.3
 pyside6==6.10.1
 pyside6-addons==6.10.1
 pyside6-essentials==6.10.1
+ratelim==0.1.6
+requests==2.32.5
 shiboken6==6.10.1
+six==1.17.0
+urllib3==2.5.0
