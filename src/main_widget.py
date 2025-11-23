@@ -13,13 +13,21 @@ class MainWidget(QWidget):
     """
     def __init__(self,interval_minutes=1):
         """构造函数"""
-        super().__init__(interval_minutes) #继承父类方法
-        self.setup_ui()
-        self.current_time =None
+        super().__init__() #继承父类方法
+
+        # 定义属性
+        self.current_time = 0
         self.interval_minutes = interval_minutes
+
+        # 初始化界面 定时器 事件绑定
+        self.setup_ui()
+        self.setup_timer()
+        self.setup_event_bind()
 
     def setup_ui(self):
         """设置用户界面"""
+        # 窗口设置 
+        self.setWindowTitle("WinAutoTheme")
 
         # 全局使用水平布局
         self.glob_hbox = QHBoxLayout(self)
@@ -32,19 +40,23 @@ class MainWidget(QWidget):
         self.glob_hbox.addWidget(self.auto_choose_btn)
         self.glob_hbox.addWidget(self.minute_spin_box)
 
-    def set_event_bind(self):
+    def setup_event_bind(self):
         """设置事件绑定"""
-        self.auto_choose_btn.clicked.connect(self.interval_get_current_time)
+        self.auto_choose_btn.clicked.connect(self.handel_auto_choose_theme)
 
-    def auto_choose_theme(self):
+    def handel_auto_choose_theme(self):
         """自动选择主题"""
 
         # 间隔分钟数 使用自动选择按钮
-        self.interval_minutes = int(self.auto_choose_btn.text())
+        self.interval_minutes = int(self.minute_spin_box.value())
+        
         # 更新当前时间
         self.interval_upgrade_current_time()
 
-    def choose_theme(self):
+        # 选择主题
+        self.auto_choose_theme()
+
+    def auto_choose_theme(self):
         """自动选择"""
 
         # 获取位置
@@ -73,15 +85,17 @@ class MainWidget(QWidget):
         elif current_time >= sun_set:
             win_them_reg.set_system_theme(0)
 
+    def setup_timer(self):
+        """设置定时器具"""
+        self.timer = QTimer(self)
+    
     def interval_upgrade_current_time(self):
-        """间隔几分钟获取当前时间
-
-        :return: 当前时间戳
-        """
-        timer = QTimer(self)
-        timer.timeout.connect(self.upgrade_current_time)
-        timer.start(self.interval_minutes*60000)
+        """间隔几分钟获取当前时间"""
+        self.upgrade_current_time()        
+        self.timer.timeout.connect(self.upgrade_current_time)
+        self.timer.start(self.interval_minutes*60000)
 
     def upgrade_current_time(self):
         """更新当前时间"""
         self.current_time = time.time()
+        print(self.current_time)
