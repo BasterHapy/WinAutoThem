@@ -2,7 +2,6 @@
 import requests
 from datetime import datetime
 
-
 def get_sunrise_sunset(latlng:tuple[float,float]):
     """获取日出日落
 
