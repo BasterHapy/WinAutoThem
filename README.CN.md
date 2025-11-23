@@ -4,31 +4,31 @@
 [![License](https://img.shields.io/badge/License-GPL3.0-blue.svg)](https://opensource.org/license/gpl-3-0)
 [![Support System](https://img.shields.io/badge/Windows-%3e%3d10-red)](https://opensource.org/license/gpl-3-0)
 
-This is a Windows automatic theme-switching tool implemented with PySide6.
+这是一个PySide6实现的Windows自动切换主题的小工具！
 
 [简体中文](./README.CN.md)
 
-## feature
-- Automatically switch themes
-- Supports system tray
-- Run on startup
+## 功能特性
 
+- 自动切换主题
+- 支持系统托盘
+- 开机自启动
 
-## how to run it？
+## 怎么运行
 
-### create venv 
+### 创建虚拟环境
 ```bash
 uv venv pywin -p 3.11
 ```
-### use venv 
+### 使用虚拟环境
 ```bash
  .\pywin\Scripts\activate.bat
 ```
-### install requirements.txt
+### 安装依赖
 ```bash
 uv pip install -r ./requirements.txt
 ```
-### run
+### 运行
 ```bash
 python main.py
 ```
