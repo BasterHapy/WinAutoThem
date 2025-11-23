@@ -1,5 +1,4 @@
 # 这是一个抽象类，用于获取一天的日出和日落时间以及当前时间。
-
 import time
 from src.sun_rise_set import get_sunrise_sunset
 
