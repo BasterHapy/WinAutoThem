@@ -1,5 +1,4 @@
 # 程序入口
-
 from src.my_location import MyLocation
 from src.one_day import OneDay
 
