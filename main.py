@@ -10,6 +10,9 @@ def main():
     my_loc = MyLocation()
     latlng_list = my_loc.get_latlng()
 
+    # 断言
+    assert latlng_list ,"请连接网络"
+
     # 实例化一天
     one_day = OneDay(latlng_list)
 
